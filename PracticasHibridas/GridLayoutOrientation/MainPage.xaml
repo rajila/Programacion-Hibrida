@@ -6,22 +6,103 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="ContentPanel" Margin="12,12,12,12">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <Page.Resources>
+        <Style x:Key="calcButtons" TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="2,2,2,2" />
+            <Setter Property="FontSize" Value="25" />
+            <Setter Property="Background" Value="Gainsboro" />
+        </Style>
+        <Style x:Key="NumberButtons" TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="2,2,2,2" />
+            <Setter Property="FontSize" Value="25" />
+            <Setter Property="Background" Value="WhiteSmoke" />
+        </Style>
+        <Style x:Key="memoryButtons" TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="2,2,2,2" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Background" Value="LightGray" />
+        </Style>
+    </Page.Resources>
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="Prueba" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Height="200" Width="200"></TextBox>
-        <StackPanel x:Name="buttonList" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
-            <Button Content="Action 1" />
-            <Button Content="Action 2" />
-            <Button Content="Action 3" />
-            <Button Content="Action 4" />
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border Background="LightGray" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch">
+            <TextBlock FontSize="30" Text="Estándar" TextAlignment="Left" Margin="30,10,0,0" />
+        </Border>
+        <Border Background="LightGray" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch">
+            <TextBlock x:Name="Result"   FontSize="50" TextAlignment="Right" Margin="0,0,0,0" Text="0.0" TextWrapping="Wrap"/>
+        </Border>
+        <Grid Grid.Column="0" Grid.Row="2" Background="LightGray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Column="0" Grid.Row="0" Content="MC" Style="{StaticResource memoryButtons}" />
+            <Button Grid.Column="1" Grid.Row="0" Content="MR" Style="{StaticResource memoryButtons}" />
+            <Button Grid.Column="2" Grid.Row="0" Content="M+" Style="{StaticResource memoryButtons}" />
+            <Button Grid.Column="3" Grid.Row="0" Content="M-" Style="{StaticResource memoryButtons}" />
+            <Button Grid.Column="4" Grid.Row="0" Content="MS" Style="{StaticResource memoryButtons}" />
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="3" Background="LightGray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button x:Name="num0" Grid.Column="1" Grid.Row="5" Content="0" Style="{StaticResource NumberButtons}" />
+            <Button x:Name="num1" Grid.Column="0" Grid.Row="4" Content="1" Style="{StaticResource NumberButtons}" />
+            <Button x:Name="num2" Grid.Column="1" Grid.Row="4" Content="2" Style="{StaticResource NumberButtons}" />
+            <Button x:Name="num3" Grid.Column="2" Grid.Row="4" Content="3" Style="{StaticResource NumberButtons}" />
+            <Button x:Name="num4" Grid.Column="0" Grid.Row="3" Content="4" Style="{StaticResource NumberButtons}" />
+            <Button x:Name="num5" Grid.Column="1" Grid.Row="3" Content="5" Style="{StaticResource NumberButtons}" />
+            <Button x:Name="num6" Grid.Column="2" Grid.Row="3" Content="6" Style="{StaticResource NumberButtons}" />
+            <Button x:Name="num7" Grid.Column="0" Grid.Row="2" Content="7" Style="{StaticResource NumberButtons}" />
+            <Button x:Name="num8" Grid.Column="1" Grid.Row="2" Content="8" Style="{StaticResource NumberButtons}" />
+            <Button x:Name="num9" Grid.Column="2" Grid.Row="2" Content="9" Style="{StaticResource NumberButtons}" />
+            <Button x:Name="neg" Grid.Column="0" Grid.Row="5" Content="±" Style="{StaticResource calcButtons}" />
+            <Button x:Name="dot" Grid.Column="2" Grid.Row="5" Content="." Style="{StaticResource calcButtons}" />
+            <Button x:Name="equals" Grid.Column="3" Grid.Row="5" Content="=" Style="{StaticResource calcButtons}" />
+            <Button x:Name="plus" Grid.Column="3" Grid.Row="4" Content="+" Style="{StaticResource calcButtons}" />
+            <Button x:Name="minus" Grid.Column="3" Grid.Row="3" Content="-" Style="{StaticResource calcButtons}" />
+            <Button x:Name="mult" Grid.Column="3" Grid.Row="2" Content="X" Style="{StaticResource calcButtons}" />
+            <Button x:Name="div" Grid.Column="3" Grid.Row="1" Content="÷" Style="{StaticResource calcButtons}" />
+            <Button x:Name="CE" Grid.Column="0" Grid.Row="1" Content="CE" Width="86" Height="76" Style="{StaticResource calcButtons}" />
+            <Button x:Name="C" Grid.Column="1" Grid.Row="1" Content="C" Style="{StaticResource calcButtons}" />
+            <Button x:Name="DEL" Grid.Column="2" Grid.Row="1" Content="DEL" Style="{StaticResource calcButtons}" />
+            <Button x:Name="porc" Grid.Column="0" Grid.Row="0" Content="%" Width="86" Height="76" Style="{StaticResource calcButtons}" />
+            <Button x:Name="root" Grid.Column="1" Grid.Row="0" Content="√" Style="{StaticResource calcButtons}" />
+            <Button x:Name="square" Grid.Column="2" Grid.Row="0" Content="x²" Style="{StaticResource calcButtons}" />
+            <Button x:Name="byX" Grid.Column="3" Grid.Row="0" Content="1/X" Style="{StaticResource calcButtons}" />
+        </Grid>
     </Grid>
 </Page>
