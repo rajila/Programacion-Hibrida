@@ -1,0 +1,15 @@
+﻿<Page
+    x:Class="practicaTwo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:practicaTwo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="_btnCargarPagina" Content="Cargar Página" HorizontalAlignment="Left" Margin="242,87,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.292,-1.094" Click="_btnCargarPagina_Click"/>
+        <TextBlock x:Name="_txtPagina" HorizontalAlignment="Left" Margin="245,167,0,0" Text="......." TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.413,1.125" Width="1160" Height="761"/>
+        <TextBlock x:Name="_txtHora" HorizontalAlignment="Left" Margin="479,92,0,0" Text="...." TextWrapping="Wrap" VerticalAlignment="Top"/>
+    </Grid>
+</Page>
